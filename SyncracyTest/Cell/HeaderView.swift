@@ -7,14 +7,20 @@
 
 import UIKit
 
-class HeaderView: UITableViewHeaderFooterView {
+protocol ListHeaderViewDelegate {
+    func listToChangeInOtheranguage()
+}
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+class HeaderView: UITableViewHeaderFooterView {
+    var delegate: ListHeaderViewDelegate?
+    @IBOutlet weak var changeLanBtn: UIButton!
+    
+    override func layoutSubviews(){
+        super.layoutSubviews()
     }
-    */
+    
+    @IBAction func changeLngBtnClickMethod(_ sender: UIButton) {
+        delegate?.listToChangeInOtheranguage()
+    }
 
 }
